@@ -30,6 +30,8 @@ const App = () => {
           return setstate("error")
         }
 
+        
+
       default:
         return setstate(state + value)
     }
