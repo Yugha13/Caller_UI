@@ -10,7 +10,7 @@ const App = () => {
         try{
           return setstate(eval(state));
         }catch{
-          return setstate("BC")
+          return setstate("error")
         }
       
       case "B":
@@ -27,7 +27,7 @@ const App = () => {
         try{
           return setstate(eval(state)/100)
         }catch{
-          return setstate("BC")
+          return setstate("error")
         }
 
       default:
