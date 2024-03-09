@@ -5,16 +5,35 @@ const App = () => {
   const [state,setstate] = useState("");
   const nums = ["C","+/-","%","B",'1','2','3',"+",'4','5','6',"-",'7','8','9',"/",'0',".","="]
   const handleCal = (value)=>{
-    if(value=='='){
-      return setstate(eval(state));
-    }
-    if(value=="B"){
+    switch(value){
+      case '=':
+        try{
+          return setstate(eval(state));
+        }catch{
+          return setstate("BC")
+        }
       
+      case "B":
+        return setstate(state.slice(0,-1))
+      
+      case "C":
+        return setstate('')
+
+      case '+/-':
+        const cal=eval(state)
+        return setstate(-cal)
+
+      case '%':
+        try{
+          return setstate(eval(state)/100)
+        }catch{
+          return setstate("BC")
+        }
+
+      default:
+        return setstate(state + value)
     }
-    if(value=="C"){
-      return setstate('')
-    }
-    return setstate(state + value)
+      
   }
   return (
     <div className='overall'>
