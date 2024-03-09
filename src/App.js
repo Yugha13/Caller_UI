@@ -7,6 +7,7 @@ const App = () => {
   const handleCal = (value)=>{
     switch(value){
       case '=':
+       //added comments 
         try{
           return setstate(eval(state));
         }catch{
