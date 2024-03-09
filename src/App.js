@@ -33,7 +33,7 @@ const App = () => {
       default:
         return setstate(state + value)
     }
-      
+      //vankam da mapla
   }
   return (
     <div className='overall'>
