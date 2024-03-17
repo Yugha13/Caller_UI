@@ -1,21 +1,16 @@
-import React,{useState} from 'react'
-import './style.css'
+import React from 'react'
+import Dial from './components/Dial'
+import Contact from './components/Contact'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
+import { CssBaseline } from '@mui/material'
 
-const App = () => {
-  const [state,setstate] = useState("");
-  const nums = ["C","+/-","%","B",'1','2','3',"+",'4','5','6',"-",'7','8','9',"/",'0',".","="]
-  const handleCal = (value)=>{
-    if(value=='='){
-      return setstate(eval(state));
-    }
-    if(value=="B"){
-      
-    }
-    if(value=="C"){
-      return setstate('')
-    }
-    return setstate(state + value)
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark"
   }
+})
+
+const app = () => {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline/>
