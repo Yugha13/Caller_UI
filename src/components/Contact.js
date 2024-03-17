@@ -8,6 +8,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
 
+
 function renderRow(props) {
   const { index, style } = props;
 
@@ -25,34 +26,32 @@ export default function VirtualizedList() {
     <div style={{display:'flex',justifyContent:'center'}}>
       <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
         <div>
+          <TextField
+          id="outlined-basic"
+          label="Outlined"
+          variant="outlined"
+          size="small"
+          />
+          <Button 
+          variant="contained"
+          >Search</Button>
+        </div>
 
-      <TextField
-       id="outlined-basic"
-       label="Outlined"
-       variant="outlined"
-       size="small"
-       />
-      <Button 
-      variant="contained"
-      >Search</Button>
-      </div>
-
-    
-    <Box
-    sx={{ width: '100%', height: 400, maxWidth: 360, bgcolor: 'background.paper'}}
-    >
-      <FixedSizeList
-        height={400}
-        width={360}
-        itemSize={46}
-        itemCount={200}
-        overscanCount={5}
+        <Box
+        sx={{ width: '100%', height: 400, maxWidth: 360, bgcolor: 'background.paper'}}
         >
-        {renderRow}
-      </FixedSizeList>
-    </Box>
-    
-    </div>
+          <FixedSizeList
+            height={400}
+            width={360}
+            itemSize={46}
+            itemCount={200}
+            overscanCount={5}
+            >
+            {renderRow}
+          </FixedSizeList>
+        </Box>
+        
+      </div>
     </div>
   );
 }

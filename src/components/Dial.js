@@ -19,8 +19,12 @@ const Item = styled(Paper)(({ theme }) => ({
 
 
 export default function RowAndColumnSpacing() {
-  const [num,setnum]=React.useState([])
+  const [num,setnum]=React.useState([]);
+  const [contacts,setcontacts]=React.useState([])
   const arr =[1,2,3,4,5,6,7,8,9,'C',0,'B']
+  React.useEffect(()=>{
+    localStorage.setItem('details',JSON.stringify([...contacts]));
+  }, [contacts])
   const handleValue=(val)=>{
     if(val=='C'){
       setnum([]);
@@ -38,8 +42,12 @@ export default function RowAndColumnSpacing() {
     }
   }
 
-  const handleSave=()=>{
-
+  const handleSave=(e)=>{
+    e?.preventDefault();
+    const name = prompt("Enter the Name");
+    setcontacts([...contacts, {name, num}]);
+    
+    setnum([]);
   }
 
   return (
